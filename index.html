@@ -1,86 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Quiz about Islam">
-    <meta name="keywords" content="quiz, game, islam, funfacts, religion, knowledge, science">
-
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
-    <script src="https://kit.fontawesome.com/0f6c63645a.js" crossorigin="anonymous"></script>
-    <title>The Ilm Quiz</title>
+    <meta name="description" content="Quiz om Islam - Lär dig intressanta fakta">
+    <meta name="keywords" content="quiz, islam, kunskap, fakta">
+    <title>Ilm Quiz</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <!-- start section -->
-    <header>The ilm quiz</header>
-
+    <header>
+        <h1>Ilm Quiz</h1>
+    </header>
+    
     <main>
-    <!-- this container is going to hold start, game and total score page -->
-    <section id="container">
+        <section id="container">
+            <!-- Start page -->
+            <div id="start" class="section active">
+                <h2>Välkommen!</h2>
+                <p>I detta quiz kommer du lära dig intressanta fakta om Islam och rätta till vanliga missuppfattningar.</p>
+                <p><strong>Men först, låt oss gå igenom reglerna:</strong></p>
+                <ul>
+                    <li>Quizet innehåller 10 frågor med svarsalternativ</li>
+                    <li>Du kan inte avbryta quizet medan du spelar</li>
+                    <li>Du får direkt feedback på dina svar</li>
+                    <li>När quizet är klart får du se din totala poäng</li>
+                </ul>
+                <button id="start-button" class="btn btn-primary">Starta Quiz</button>
+            </div>
 
-        <!-- div that holds the header of the container (both intro and questions) -->
-        <div id="start">
-            <p class="header">In this quick quiz you are going to learn some fun facts about, and to change some misconceptions people might have about Islam. 
-                <br>
-                <br>
-                But first, let's go over some rules.</p>
+            <!-- Quiz-page -->
+            <div id="quiz" class="section">
+                <div id="progress">
+                    <p>Fråga <span id="current-question">1</span> av <span id="total-questions">10</span></p>
+                </div>
+                
+                <h2 id="question-text">Frågan laddas...</h2>
+                
+                <div id="options">
+                    <!-- Alternatives generate dynamically -->
+                </div>
+                
+                <!-- Explanation box -->
+                <div id="explanation-box" class="explanation-box hidden">
+                    <p id="explanation-text"></p>
+                </div>
+            </div>
 
-            <ul>
-                <li>The quiz contains 10 statements along with answers to choose from.</li>
-                <li>You can't exit the quiz while you are playing.</li>
-                <li>When the quiz is finished, you'll get your total score.</li>
-            </ul>
+            <!-- Result page -->
+            <div id="result" class="section">
+                <h2>🎉 Grattis!</h2>
+                <p class="result-text">
+                    Du fick <span id="final-score">0</span> av <span id="final-total">10</span> rätt!
+                </p>
+                <p id="result-message"></p>
+                <button id="play-again" class="btn btn-primary">Spela igen</button>
+            </div>
+        </section>
+
+        <!-- Scores (shows during quiz) -->
+        <div id="score-display">
+            <p>Poäng: <span id="current-score">0</span></p>
         </div>
-
-        <!-- Quiz area -->
-        <div id="quiz">
-            <p class="header" id="question-que">This is where the question should display..</p>
-
-            <p id="option1" class="choice-que" onclick="disableOptions()">This is the first option</p>
-            <p id="option2" class="choice-que" onclick="disableOptions()">This is the second option</p>
-            <p id="option3" class="choice-que" onclick="disableOptions()">This is the third option</p>
-            
-        </div>
-       
-        
-        
-        <!-- Result Area -->
-        <div id="result">
-            <p><i class="fa-solid fa-award"></i>
-            <br>
-            <br>
-            You've finished the quiz and scored <span id="total-score">0</span> out of 10!
-            <br>
-            <br>
-            </p>
-        </div>
-        
-
-    </section>
-
-    <!-- 
-        section that holds the divs below container. it first displays a start button, then changes into information about current score when playing the game and finally turns into a option to play again
-    -->
-    <section id="box">
-        <div id="start-button">
-            <p>Start Quiz</p>
-        </div>
-
-        <div id="score-area">
-            <p>Score: <span id="current-score">0</span></p>
-        </div>
-
-        <div id="play-again">
-            <p>Play Again</p>
-        </div>
-    </section>
-
     </main>
 
-    <!-- javascript file -->
-    <script src="assets/js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
