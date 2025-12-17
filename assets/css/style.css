@@ -310,6 +310,12 @@ main {
     box-shadow: var(--shadow-lg);
 }
 
+#next-button {
+    margin-top: var(--spacing-lg);
+    width: 100%;
+    display: none; 
+}
+
 #start-button {
     margin-top: var(--spacing-lg);
 }

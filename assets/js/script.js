@@ -1,5 +1,3 @@
-const { question } = require("readline-sync");
-
 // Declaring constants for DOM elements ---------------------------------------------------
 const elements = {
     // Sections
@@ -21,12 +19,12 @@ const elements = {
 
     // Score-Elements
     currentScore: document.getElementById('current-score'),
-    finalScore: document.getElementById('finai-score'),
+    finalScore: document.getElementById('final-score'),
     finalTotal: document.getElementById('final-total'),
 
     // Other
     currentQuestion: document.getElementById('current-question'),
-    totalQustions: document.getElementById('total-questions'),
+    totalQuestions: document.getElementById('total-questions'),
     scoreDisplay: document.getElementById('score-display'),
     resultMessage: document.getElementById('result-message')
 };
@@ -132,7 +130,7 @@ let score = 0;
 // INIT - When page load ---------------------------------------------------------
 function init() {
     // Puts total questions in html
-    elements.totalQustions.textContent = quizData.length;
+    elements.totalQuestions.textContent = quizData.length;
     elements.finalTotal.textContent = quizData.length;
 
     // Event listeners
@@ -238,21 +236,8 @@ function selectAnswer(isCorrect, buttonElement) {
     // Show explanation
     showExplanation();
 
-    // Wait 2.5 sec so that the user has time to read the explanation, then goes to next question
-    setTimeout(() => {
-        // Hide explanation before next question
-        hideExplanation();
-
-        // Check if there's any questions left
-        if (currentQuestionIndex < quizData.length - 1) {
-            // There's more questions left: show next
-            currentQuestionIndex++;
-            displayQuestion();
-        } else {
-            // No more questions: show result
-            showResults();
-        }
-    }, 2500);
+    // Show "Next" button
+    showNextButton();
 }
 
 // HIGHLIGHT RIGHT ANSWER (if user chooses the wrong answer)
@@ -288,6 +273,51 @@ function hideExplanation() {
     elements.explanationBox.classList.add('hidden');
 }
 
+// SHOW NEXT BUTTON ------------------------------------------------------
+function showNextButton() {
+    // Check if button already exists
+    let nextButton = document.getElementById('next-button');
+
+    if (!nextButton) {
+        // Create button if not exists
+        nextButton = document.createElement('button');
+        nextButton.id = 'next-button';
+        nextButton.className = 'btn btn-primary';
+        nextButton.textContent = 'Nästa fråga';
+
+        // Add click event
+        nextButton.addEventListener('click', handleNextQuestion);
+
+        // Add button after explanation box
+        elements.explanationBox.parentElement.appendChild(nextButton);
+    }
+
+    // Show button
+    nextButton.style.display = 'block';
+}
+
+// HANDLE NEXT QUESTION --------------------------------------------------
+function handleNextQuestion() {
+    // Hide next button
+    const nextButton = document.getElementById('next-button');
+    if (nextButton) {
+        nextButton.style.display = 'none';
+    }
+
+    // Hide explanation
+    hideExplanation();
+
+    // Check if there's any questions left
+    if (currentQuestionIndex < quizData.length - 1) {
+        // There's more questions left: show next
+        currentQuestionIndex++;
+        displayQuestion();
+    } else {
+        // No more questions: show result
+        showResults();
+    }
+}
+
 // UPDATE SCORE ----------------------------------------------------------
 function updateScore() {
     elements.currentScore.textContent = score;
@@ -313,7 +343,7 @@ function showResults() {
     } else if (percentage >= 40) {
         message = 'Inte illa! Fortsätt lära dig så blir det ännu bättre! 💪';
     } else {
-        message: 'Fortsätt lära dig, det finns så mycket att upptäcka! 📚';
+        message = 'Fortsätt lära dig, det finns så mycket att upptäcka! 📚';
     }
     
     // Show message
@@ -325,12 +355,12 @@ function showResults() {
 
 // RESET QUIZ ----------------------------------------------------------------
 function resetQuiz() {
-    // Nollställ allt
+    // reset everything
     currentQuestionIndex = 0;
     score = 0;
     updateScore();
     
-    // Gå tillbaka till startsidan
+    // Go back to start
     showSection('start');
 }
 
