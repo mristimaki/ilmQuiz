@@ -1,181 +1,420 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
-/* style to center everything on the page and make it responsive */
+/* ============================================
+   CSS VARIABLER (Färger och återkommande värden)
+   ============================================ */
+:root {
+    /* Färger */
+    --color-bg: #FEFAE0;
+    --color-primary: #7e9f77;
+    --color-accent: #f6c64c;
+    --color-white: #fff;
+    --color-correct: #b1d3ad;
+    --color-incorrect: #ff8066;
+    
+    /* Avstånd */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 25px;
+    --spacing-xxl: 30px;
+    
+    /* Border radius */
+    --radius-sm: 7px;
+    --radius-md: 10px;
+    
+    /* Font sizes */
+    --font-xs: 16px;
+    --font-sm: 18px;
+    --font-md: 21px;
+    --font-lg: 25px;
+    --font-xl: 28px;
+    --font-xxl: 40px;
+    --font-mega: 50px;
+    
+    /* Skuggor */
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 4px 10px rgba(246, 198, 76, 0.3);
+    
+    /* Transitions */
+    --transition: all 0.3s ease;
+}
+
+/* ============================================
+   GRUNDLÄGGANDE STYLING
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #FEFAE0;
-    color: #7e9f77;
+    font-family: 'Lora', serif;
+    background-color: var(--color-bg);
+    color: var(--color-primary);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 15px;
+    min-height: 100vh;
+    margin: 0;
+    padding: var(--spacing-md);
 }
 
-/* main header */
+/* ============================================
+   HEADER (Huvudrubrik)
+   ============================================ */
 header {
-    font-size: 50px;
-    margin-bottom: 15px;
-    margin-top: 45px;
+    text-align: center;
+    margin-top: var(--spacing-xxl);
+    margin-bottom: var(--spacing-lg);
 }
 
-/* header inside container */
-.header {
-    font-size: 21px;
+header h1 {
+    font-size: var(--font-mega);
+    color: var(--color-primary);
+    margin: 0;
 }
 
-/* font-size for ordered list */
-li {
-    font-size: 18px;
-    margin-bottom: 5px;
-    margin-right: 10px;
+/* ============================================
+   MAIN (Huvudinnehåll)
+   ============================================ */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-/* styling for quiz options */
-.choice-que {
-    padding: 5px;
-    margin-bottom: 5px;
-    margin-right: 15px;
-    font-size: 18px;
-    background-color: #fff;
-    color: #f6c64c;
-    border-radius: 7px;
-    cursor: pointer;
-}
-
-/* style for correct and incorrect answer */
-.correct {
-    background-color: #b1d3ad;
-    color: #fff;
-}
-
-.incorrect {
-    background-color: #ff8066;
-    color: #fff;
-}
-
-
-.userchoice {
-    border: 3px solid #fff;
-}
-
-/* main container */
+/* ============================================
+   CONTAINER (Huvudbox för allt innehåll)
+   ============================================ */
 #container {
+    width: 100%;
     max-width: 400px;
-    height: auto;
-    padding: 10px;
-    background-color: #7e9f77;
-    color: #fff;
-    border-radius: 7px;
+    min-height: 300px;
+    padding: var(--spacing-xl);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
 }
 
-/* start quiz button */
-#start-button {
-    max-width: 400px;
-    height: auto; 
-    padding: 0 10px 0 10px;
-    font-size: 25px;
+/* ============================================
+   SEKTIONER (Start, Quiz, Result)
+   ============================================ */
+.section {
+    display: none;
+    animation: fadeIn 0.4s ease-in;
+}
+
+.section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   STARTSIDA (#start)
+   ============================================ */
+#start h2 {
+    font-size: var(--font-xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-white);
+}
+
+#start p {
+    font-size: var(--font-sm);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+#start ul {
+    list-style-position: inside;
+    margin: var(--spacing-lg) 0;
+    padding-left: 0;
+}
+
+#start li {
+    font-size: var(--font-sm);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.5;
+}
+
+/* ============================================
+   QUIZ-SIDA (#quiz)
+   ============================================ */
+#progress {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-sm);
     text-align: center;
-    background-color: #f6c64c;
-    color: #fff;
-    border-radius: 7px;
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-xs);
+    font-weight: 600;
+}
+
+#question-text {
+    font-size: var(--font-md);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.5;
+    color: var(--color-white);
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.option-btn {
+    padding: var(--spacing-md);
+    font-size: var(--font-sm);
+    font-family: 'Lora', serif;
+    background-color: var(--color-white);
+    color: var(--color-accent);
+    border: none;
+    border-radius: var(--radius-sm);
     cursor: pointer;
+    transition: var(--transition);
+    text-align: left;
 }
 
-#start-button:hover {
-    background-color: #fff;
-    color: #f6c64c;
-} 
+.option-btn:hover:not(:disabled) {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    transform: translateX(5px);
+}
 
-/* play again button */
-#play-again {
-    font-size: 25px;
+.option-btn:disabled {
+    cursor: not-allowed;
+}
+
+.option-btn.correct {
+    background-color: var(--color-correct);
+    color: var(--color-white);
+}
+
+.option-btn.incorrect {
+    background-color: var(--color-incorrect);
+    color: var(--color-white);
+}
+
+/* ============================================
+   FÖRKLARINGSRUTA
+   ============================================ */
+.explanation-box {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    animation: slideIn 0.3s ease-out;
+}
+
+.explanation-box.hidden {
+    display: none;
+}
+
+#explanation-text {
+    margin: 0;
+    font-size: var(--font-xs);
+    line-height: 1.6;
+    color: var(--color-white);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   RESULTATSIDA (#result)
+   ============================================ */
+#result {
     text-align: center;
-    color: #f6c64c;
-    cursor: pointer;
 }
 
-#play-again:hover {
-    color: #f6c64c;
-    font-weight: bold;
-} 
-
-/* box that shows users current score */
-/* background color doesn't work */
-#score-area {
-    width: 300px;
-    height: auto; 
-    padding: 0 10px 0 10px;
-    font-size: 25px;
-    text-align: center;
-    color: #f6c64c;
-    border-radius: 7px;
+#result h2 {
+    font-size: var(--font-xxl);
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-white);
 }
 
-/* font size to final result section */
 #result p {
-    font-size: 30px;
-    text-align: center;
+    font-size: 24px;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
 }
 
-/* fontawesome icon */
-#result i {
-    font-size: 70px;
-    color: #f6c64c;
-    text-align: center;
+.result-text {
+    font-size: var(--font-xl);
+    margin: var(--spacing-lg) 0;
 }
 
-/* media queries for smaller screens */
+#final-score {
+    color: var(--color-accent);
+    font-weight: bold;
+    font-size: var(--font-xxl);
+}
+
+#result-message {
+    font-size: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+    color: var(--color-white);
+}
+
+/* ============================================
+   KNAPPAR
+   ============================================ */
+.btn {
+    padding: 12px 30px;
+    font-size: var(--font-lg);
+    font-family: 'Lora', serif;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: normal;
+}
+
+.btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-white);
+    color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+#start-button {
+    margin-top: var(--spacing-lg);
+}
+
+/* ============================================
+   POÄNGVISNING (Under quiz)
+   ============================================ */
+#score-display {
+    width: 100%;
+    max-width: 400px;
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    font-size: var(--font-lg);
+    text-align: center;
+    color: var(--color-accent);
+    background-color: var(--color-primary);
+    border-radius: var(--radius-sm);
+    display: none;
+    box-shadow: var(--shadow-md);
+}
+
+#score-display p {
+    margin: 0;
+}
+
+#current-score {
+    font-weight: bold;
+    font-size: var(--spacing-xxl);
+}
+
+/* ============================================
+   RESPONSIV DESIGN (Media Queries)
+   ============================================ */
 @media only screen and (max-width: 700px) {
+    header h1 {
+        font-size: var(--font-xxl);
+    }
 
     #container {
-        max-width: 250px;
-        height: auto;
-        padding: 10px;
-        background-color: #7e9f77;
-        color: #fff;
-        border-radius: 7px;
+        max-width: 350px;
+        padding: var(--spacing-lg);
     }
 
-    #start-button {
-        max-width: 250px;
-        height: auto; 
-        padding: 0 10px 0 10px;
-        font-size: 25px;
-        text-align: center;
-        background-color: #f6c64c;
-        color: #fff;
-        border-radius: 7px;
-        cursor: pointer;
+    #question-text {
+        font-size: 19px;
     }
-    
+
+    .option-btn {
+        font-size: var(--font-xs);
+        padding: 12px;
+    }
+
+    #score-display {
+        max-width: 350px;
+        font-size: 22px;
+    }
 }
 
 @media only screen and (max-width: 400px) {
-
-    header {
-        font-size: 40px;
-        margin-bottom: 15px;
+    header h1 {
+        font-size: 35px;
     }
-    
+
     #container {
-        max-width: 250px;
-        height: auto;
-        padding: 10px;
-        background-color: #7e9f77;
-        color: #fff;
-        border-radius: 7px;
+        max-width: 280px;
+        padding: var(--spacing-md);
     }
 
-    #start-button {
-        max-width: 250px;
-        height: auto; 
-        padding: 0 10px 0 10px;
-        font-size: 25px;
-        text-align: center;
-        background-color: #f6c64c;
-        color: #fff;
-        border-radius: 7px;
-        cursor: pointer;
+    #start h2 {
+        font-size: 24px;
     }
-    
+
+    #start p,
+    #start li {
+        font-size: var(--font-xs);
+    }
+
+    #question-text {
+        font-size: var(--font-sm);
+    }
+
+    .option-btn {
+        font-size: 15px;
+        padding: var(--spacing-sm);
+    }
+
+    .btn {
+        font-size: var(--spacing-lg);
+        padding: var(--spacing-sm) var(--spacing-xl);
+    }
+
+    #score-display {
+        max-width: 280px;
+        font-size: var(--spacing-lg);
+    }
+
+    #result h2 {
+        font-size: 32px;
+    }
+
+    #result p {
+        font-size: var(--spacing-lg);
+    }
+
+    #final-score {
+        font-size: 32px;
+    }
 }
