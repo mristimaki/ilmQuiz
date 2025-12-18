@@ -3,8 +3,7 @@
 [The Ilm Quiz](https://mristimaki.github.io/ilmQuiz/) *(or The Knowledge Quiz to translate it)*, is a quiz with different statements to learn fun and scientific facts about islam. This quiz is built to make people gain knowledge about some of the misconseptions about Islam and also highlight some mindblowing scientific facts that is in the Quran, that most people don't know about. I have chosen to make this quiz as simple as possible, with no further heavy information just to keep it simple and fun, if the user would want to look these things up it's the users choice to dig deeper into the different subjects. 
 <br>
 <br>
-<img width="967" alt="amiresponsive" src="https://user-images.githubusercontent.com/121927123/236107061-e9bad389-c424-432f-b116-43e3cb485a17.png">
-
+<img width="967" alt="amiresponsive" src="/assets/images/amiresponsive.png"
 
 ## UX
 
@@ -57,25 +56,25 @@ When choosing the color theme for this quiz, I looked up the psychological effec
 
 #### The Header
 
-<img width="802" alt="header" src="https://user-images.githubusercontent.com/121927123/228029447-58bee2f2-32bf-44b3-bdbd-0666274ce97c.png">
+<img width="802" alt="header" src="/assets/images/logo.png">
 
-I chose a simple design to the header that is consistent troughout the quiz.
+I chose a simple yet modern design to the header that is placed over the quiz-container.
 
 #### The Landing Page
 
-<img width="802" alt="landingpage" src="https://user-images.githubusercontent.com/121927123/228029720-d56d6448-267a-4493-883a-5bd10ee42920.png">
+<img width="802" alt="landingpage" src="/assets/images/landing.png">
 
 The landing page starts with a simple instruction about the quiz and some rules. It also provides the user with a option to start the game with a start quiz-button that takes the user to the first question.
 
 #### The Game Area
 
-<img width="802" alt="quizarea" src="https://user-images.githubusercontent.com/121927123/228030420-8ff42a6b-0e7a-4b40-9480-349339616c44.png">
+<img width="802" alt="quizarea" src="/assets/images/right.png">
 
-The game area is simplistic with queston and three options to choose from. In the bottom of the page, the user can se the current score which increases each time the user gets the right answer. When the user has clicked on one of the options, the game will skip to the next question after one second.
+The game area is simplistic with queston and three options to choose from. In the bottom of the page, the user can se the current score which increases each time the user gets the right answer. When the user has clicked on one of the options, an explanation of the right answer will appear and a next button so that the user can choose to move forward in the quiz.
 
 #### The Final Scores Area
 
-<img width="982" alt="resultpage" src="https://user-images.githubusercontent.com/121927123/228336627-09f885f2-4517-46b8-8918-e8c909cffaaa.png">
+<img width="982" alt="resultpage" src="/assets/images/result.png">
 
 When the user has answered all the questions, the final scores will appear as well as a Play Again-button that provides the user to play the Quiz one or more times again.
 
