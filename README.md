@@ -3,7 +3,7 @@
 [The Ilm Quiz](https://mristimaki.github.io/ilmQuiz/) *(or The Knowledge Quiz to translate it)*, is a quiz with different statements to learn fun and scientific facts about islam. This quiz is built to make people gain knowledge about some of the misconseptions about Islam and also highlight some mindblowing scientific facts that is in the Quran, that most people don't know about. I have chosen to make this quiz as simple as possible, with no further heavy information just to keep it simple and fun, if the user would want to look these things up it's the users choice to dig deeper into the different subjects. 
 <br>
 <br>
-<img width="967" alt="amiresponsive" src="/assets/images/amiresponsive.png"
+<img width="967" alt="amiresponsive" src="/assets/images/amiresponsive.png">
 
 ## UX
 
