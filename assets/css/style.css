@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
-/* ============================================
-   CSS VARIABLER (Färger och återkommande värden)
-   ============================================ */
+/* CSS VARIABLES  ------------------------------- */
 :root {
     /* Färger */
     --color-bg: #FEFAE0;
@@ -42,9 +40,7 @@
     --transition: all 0.3s ease;
 }
 
-/* ============================================
-   GRUNDLÄGGANDE STYLING
-   ============================================ */
+/* GRUNDLÄGGANDE STYLING  ------------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -62,9 +58,7 @@ body {
     padding: var(--spacing-md);
 }
 
-/* ============================================
-   HEADER (Huvudrubrik)
-   ============================================ */
+/* HEADER  ------------------------------- */
 header {
     text-align: center;
     margin-top: var(--spacing-xxl);
@@ -77,9 +71,7 @@ header h1 {
     margin: 0;
 }
 
-/* ============================================
-   MAIN (Huvudinnehåll)
-   ============================================ */
+/* MAIN  ------------------------------- */
 main {
     flex: 1;
     display: flex;
@@ -91,9 +83,7 @@ main {
     margin: 0 auto;
 }
 
-/* ============================================
-   CONTAINER (Huvudbox för allt innehåll)
-   ============================================ */
+/* CONTAINER  ------------------------------- */
 #container {
     width: 100%;
     max-width: 400px;
@@ -105,9 +95,7 @@ main {
     box-shadow: var(--shadow-md);
 }
 
-/* ============================================
-   SEKTIONER (Start, Quiz, Result)
-   ============================================ */
+/* SEKTIONER (start, quiz, result)  ------------------------------- */
 .section {
     display: none;
     animation: fadeIn 0.4s ease-in;
@@ -128,9 +116,7 @@ main {
     }
 }
 
-/* ============================================
-   STARTSIDA (#start)
-   ============================================ */
+/* STARTSIDA  ------------------------------- */
 #start h2 {
     font-size: var(--font-xl);
     margin-bottom: var(--spacing-md);
@@ -155,9 +141,7 @@ main {
     line-height: 1.5;
 }
 
-/* ============================================
-   QUIZ-SIDA (#quiz)
-   ============================================ */
+/* QUIZ-SIDA  ------------------------------- */
 #progress {
     background-color: rgba(255, 255, 255, 0.2);
     padding: var(--spacing-sm);
@@ -214,9 +198,7 @@ main {
     color: var(--color-white);
 }
 
-/* ============================================
-   FÖRKLARINGSRUTA
-   ============================================ */
+/* FÖRKLARINGSRUTA  ------------------------------- */
 .explanation-box {
     margin-top: var(--spacing-lg);
     padding: var(--spacing-md);
@@ -248,9 +230,7 @@ main {
     }
 }
 
-/* ============================================
-   RESULTATSIDA (#result)
-   ============================================ */
+/* RESULTAT-SIDA  ------------------------------- */
 #result {
     text-align: center;
 }
@@ -284,9 +264,7 @@ main {
     color: var(--color-white);
 }
 
-/* ============================================
-   KNAPPAR
-   ============================================ */
+/* KNAPPAR  ------------------------------- */
 .btn {
     padding: 12px 30px;
     font-size: var(--font-lg);
@@ -320,9 +298,7 @@ main {
     margin-top: var(--spacing-lg);
 }
 
-/* ============================================
-   POÄNGVISNING (Under quiz)
-   ============================================ */
+/* POÄNGVISNING (Under quiz)  ------------------------------- */
 #score-display {
     width: 100%;
     max-width: 400px;
@@ -346,9 +322,7 @@ main {
     font-size: var(--spacing-xxl);
 }
 
-/* ============================================
-   RESPONSIV DESIGN (Media Queries)
-   ============================================ */
+/* RESPONSIV DESIGN  ------------------------------- */
 @media only screen and (max-width: 700px) {
     header h1 {
         font-size: var(--font-xxl);
